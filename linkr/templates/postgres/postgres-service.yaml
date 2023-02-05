@@ -7,11 +7,11 @@ metadata:
   name: postgres
 
 spec:
-  # Select pods in the postgress app
+  # Select pods in the postgres app
   selector:
     app: postgres
 
   # Which port data is received on.
-  # By default, targetPort == port, so data will be forwarded to port 5432 of selected pods.
+  # By default, targetPort == port
   ports:
-    - port: 5432
+    - port: {{ .Values.postgres.port }}
