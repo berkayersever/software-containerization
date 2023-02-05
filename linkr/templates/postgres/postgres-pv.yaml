@@ -1,3 +1,4 @@
+{{- if not .Values.deployToGcp }}
 # Create a persistent volume for the database
 apiVersion: v1
 kind: PersistentVolume
@@ -22,3 +23,5 @@ spec:
   # In production, you wouldn't use hostPath but something else
   hostPath:
     path: {{ .Values.postgres.storage.datapath }}
+
+{{ end }}
